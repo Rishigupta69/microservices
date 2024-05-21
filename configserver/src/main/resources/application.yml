@@ -1,0 +1,22 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 9001
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          force-pull: true
+          timeout: 100
+          uri: https://github.com/javaexpresschannel/javaexpress-config-latest
+  profiles:
+    active: git
+build:
+  version: 1
